@@ -55,7 +55,6 @@ const LogIn = async (req, res, next) => {
                 method: req.method,
             });
         }
-        req.user = User;
         res.status(200).json({
             status: "OK",
             msg: "USER_LOGIN",
