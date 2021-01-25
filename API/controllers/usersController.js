@@ -10,7 +10,7 @@ const service = require('../services');
 const SignIn = async (req, res, next) => {
     try {
         const user = await User.create({
-            username: req.body.name,
+            username: req.body.username,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10)
 
@@ -19,12 +19,12 @@ const SignIn = async (req, res, next) => {
         res.status(200).json({
             status: "OK",
             msg: "CORRECT_CREATION",
-            token: service.createToken(user),
             endpoint: req.originalUrl,
             method: req.method,
             data: {
                 type: "User",
-                id: user.id
+                id: user.username,
+                token: service.createToken(user),
             }
         })
     } catch (error) {
@@ -58,12 +58,12 @@ const LogIn = async (req, res, next) => {
         res.status(200).json({
             status: "OK",
             msg: "USER_LOGIN",
-            token: service.createToken(user),
             endpoint: req.originalUrl,
             method: req.method,
             data: {
                 type: "User",
-                name: user.name
+                name: user.username,
+                token: service.createToken(user)
             }
         })
     } catch (error) {
