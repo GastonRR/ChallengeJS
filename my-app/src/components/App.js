@@ -1,8 +1,11 @@
+import React from 'react';
+import Header from './header/Header'
+
 
 function App() {
   return (
     <div className="App">
-     <p>Holi</p>
+     <Header/>
     </div>
   );
 }
