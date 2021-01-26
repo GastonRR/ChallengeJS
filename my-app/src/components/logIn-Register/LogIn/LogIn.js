@@ -113,7 +113,15 @@ const LogIn = (props) => {
                                 </div>
                             </div>
                         )}
+
+                        <div className="form-group text-center">
+                            <div className="alert" role="alert">
+                                Don't have an account? <br/>
+                                <a href="/register">Create a new account</a>
+                            </div>
+                        </div>
                         <CheckButton style={{ display: "none" }} ref={checkbtn} />
+
                     </Form>
                 </div>
             </div>

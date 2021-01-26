@@ -1,33 +1,60 @@
-import { React, Fragment } from 'react';
+import  React, { useState, useEffect }  from 'react';
 
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
-export default function Header() {
+
+import AuthService from '../../services/auth.service'
+
+
+const Header = () => {
+
+    const [currentUser, setCurrentUser] = useState(undefined);
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+    
+        if (user) {
+          setCurrentUser(user);
+        }
+      }, []);
+
+      const LogOut = () =>{
+        AuthService.logOut();;
+      }
+
+
+
     return (
-        <Fragment>
+        <React.Fragment>
             <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg" >
-                <Navbar.Brand href="#home" > Personal budgets</Navbar.Brand>
+                <Navbar.Brand href="/" > Personal budgets</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Activity</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/activity">Activity</Nav.Link>
                         <NavDropdown title="New Operations" id="collasible-nav-dropdown" >
-                            <NavDropdown.Item href="">Deposit</NavDropdown.Item>
+                            <NavDropdown.Item href="/deposit">Deposit</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="">Whithdraw</NavDropdown.Item>
+                            <NavDropdown.Item href="/withdraw">Whithdraw</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Nav className="mr-5">
-                        <NavDropdown title="User" id="collasible-nav-dropdown" drop="left" >
-                            <NavDropdown.Item href="">Perfil</NavDropdown.Item>
+                    {currentUser ?( <Nav className="mr-5">
+                        <NavDropdown title={currentUser.name} id="collasible-nav-dropdown" drop="left" >
+                            <NavDropdown.Item href="/perfil">Perfil</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="">LogOut</NavDropdown.Item>
+                            <NavDropdown.Item href="/login"  onClick={LogOut} >LogOut</NavDropdown.Item>
                         </NavDropdown>
-                    </Nav>
+                    </Nav>): <Nav className="mr-5">
+    
+                    </Nav>}
+                   
                 </Navbar.Collapse>
             </Navbar>
-        </Fragment>
+            <div>
+              
+            </div>
+        </React.Fragment>
     );
 }
+export default Header

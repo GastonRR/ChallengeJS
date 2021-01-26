@@ -155,6 +155,12 @@ const required = (value) => {
                   </div>
                 </div>
               )}
+               <div className="form-group text-center">
+                            <div className="alert " role="alert">
+                              Already have an account? <br/>
+                                <a href="/login">Log In</a>
+                            </div>
+                        </div>
               <CheckButton style={{ display: "none" }} ref={checkBtn} />
             </Form>
           </div>
