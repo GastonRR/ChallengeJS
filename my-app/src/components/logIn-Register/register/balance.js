@@ -3,6 +3,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+import { isFloat } from "validator";
+
 
 import authService from "../../../services/auth.service";
 
@@ -17,7 +19,17 @@ const required = (value) => {
     }
 };
 
-const LogIn = (props) => {
+const validBalance = (value) => {
+    if (!isFloat(value)) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          This is not a Number.
+        </div>
+      );
+    }
+  };
+
+const Balance = (props) => {
     const form = useRef();
     const checkbtn = useRef();
     const [Balance, setBalance] = useState("");
@@ -78,7 +90,7 @@ const LogIn = (props) => {
                                 name="balance"
                                 value={Balance}
                                 onChange={onChangeBalance}
-                                validations={[required]}
+                                validations={[required, validBalance]}
                             />
                         </div>
 
@@ -108,4 +120,4 @@ const LogIn = (props) => {
 
 }
 
-export default LogIn;
+export default Balance;

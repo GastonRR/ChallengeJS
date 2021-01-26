@@ -40,7 +40,7 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     {currentUser ?( <Nav className="mr-5">
-                        <NavDropdown title={currentUser.name} id="collasible-nav-dropdown" drop="left" >
+                        <NavDropdown title={currentUser.name} className="text-capitalize" id="collasible-nav-dropdown" drop="left" >
                             <NavDropdown.Item href="/perfil">Perfil</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/login"  onClick={LogOut} >LogOut</NavDropdown.Item>
