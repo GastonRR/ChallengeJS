@@ -1,0 +1,18 @@
+.Options-img-card {
+    width: 55px;
+    height: 55px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #ffc107
+
+  }
+.Options-container{
+    max-width: 500px !important;
+    padding: 15px 15px;
+}
+.text-options-cards{
+    width: 80px;
+    height: 80px;
+}
