@@ -6,9 +6,6 @@ import CheckButton from "react-validation/build/button";
 
 import authService from "../../../services/auth.service";
 
-import './LogIn.css'
-
-
 
 const required = (value) => {
     if (!value) {
@@ -23,21 +20,15 @@ const required = (value) => {
 const LogIn = (props) => {
     const form = useRef();
     const checkbtn = useRef();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [Balance, setBalance] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
-    const onChangeEmail = (e) => {
-        const email = e.target.value;
-        setEmail(email);
+    const onChangeBalance = (e) => {
+        const balance = e.target.value;
+        setBalance(balance);
     };
-    const onChangePassword = (e) => {
-        const password = e.target.value;
-        setPassword(password);
-    };
-
-    const handleLogin = (e) => {
+    const handleBalance = (e) => {
 
         e.preventDefault();
 
@@ -46,8 +37,7 @@ const LogIn = (props) => {
         form.current.validateAll();
 
         if (checkbtn.current.context._errors.length === 0) {
-            authService.logIn(email, password).then((data) => {
-
+            authService.newBalance(Balance).then((data) => {
                 props.history.push("/");
                 window.location.reload();
 
@@ -65,35 +55,29 @@ const LogIn = (props) => {
         <React.Fragment>
 
             <div className="col-md-12 ">
+                
                 <div className="card card-container bg-form">
-                <h2 className="text-center mb-5 alert">Log In</h2>
+                    
                     <img
-                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        src="https://www.iconbunny.com/icons/media/catalog/product/1/1/110.7-money-bag-icon-iconbunny.jpg"
                         alt="profile-img"
                         className="profile-img-card"
                     />
 
-                    <Form onSubmit={handleLogin} ref={form}>
+                    <Form onSubmit={handleBalance} ref={form}>
+                        <div className="form-group text-center">
+                            <div className="alert" role="alert">
+                                How much money do you have
+                            </div>
+                        </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="balance">Balance</label>
                             <Input
                                 type="text"
                                 className="form-control"
-                                name="email"
-                                value={email}
-                                onChange={onChangeEmail}
-                                validations={[required]}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <Input
-                                type="password"
-                                className="form-control"
-                                name="password"
-                                value={password}
-                                onChange={onChangePassword}
+                                name="balance"
+                                value={Balance}
+                                onChange={onChangeBalance}
                                 validations={[required]}
                             />
                         </div>
@@ -103,7 +87,7 @@ const LogIn = (props) => {
                                 {loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                <span>Login</span>
+                                <span>Accept</span>
                             </button>
                         </div>
 
@@ -114,13 +98,6 @@ const LogIn = (props) => {
                                 </div>
                             </div>
                         )}
-
-                        <div className="form-group text-center">
-                            <div className="alert" role="alert">
-                                Don't have an account? <br/>
-                                <a href="/register">Create a new account</a>
-                            </div>
-                        </div>
                         <CheckButton style={{ display: "none" }} ref={checkbtn} />
 
                     </Form>
