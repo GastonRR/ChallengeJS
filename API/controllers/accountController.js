@@ -7,6 +7,9 @@ const { Account } = require('../database/models');
 const getBalance = async (req, res, next) => {
     try {
         const account = await Account.findOne({
+            include :[{
+                association: "Operations"
+            }],
             where: {
                 idUser: req.user
             }

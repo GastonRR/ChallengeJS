@@ -1,0 +1,7 @@
+.activity-container{
+    max-width: 650px !important;
+    padding: 15px 15px;
+}
+.table-Activity{
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.3);
+}

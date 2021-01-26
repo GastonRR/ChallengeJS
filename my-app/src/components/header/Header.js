@@ -15,14 +15,11 @@ const Header = () => {
         if (user) {
           setCurrentUser(user);
         }
-      }, []);
+      },[]);
 
       const LogOut = () =>{
         AuthService.logOut();;
-      }
-
-
-
+    }
     return (
         <React.Fragment>
             <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg" >
