@@ -19,7 +19,7 @@ module.exports = (sequelize,DataTypes) => {
 			field: 'concept'
 		},
 		amount: {
-			type: DataTypes.INTEGER(11),
+			type: DataTypes.FLOAT,
 			allowNull: true,
 			field: 'amount'
 		},

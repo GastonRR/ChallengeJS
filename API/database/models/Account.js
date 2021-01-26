@@ -9,7 +9,7 @@ module.exports = (sequelize,DataTypes) => {
 			field: 'id'
 		},
 		balance: {
-			type: DataTypes.INTEGER(11),
+			type: DataTypes.FLOAT,
 			allowNull: true,
 			field: 'balance'
 		},
