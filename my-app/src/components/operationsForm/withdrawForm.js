@@ -10,7 +10,7 @@ import { isFloat } from "validator";
 
 
 import authService from "../../services/auth.service";
-import userServices from '../../services/user.services'
+import userServices from '../../services/public.services'
 
 
 const required = (value) => {

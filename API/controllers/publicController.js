@@ -1,4 +1,4 @@
-/* DB MODEL USER */
+/* DB MODEL */
 const db = require('../database/models');
 
 

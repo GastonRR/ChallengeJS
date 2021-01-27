@@ -10,8 +10,6 @@ import Table from './Activity'
 
 
 
-
-
 function ActivityPage() {
     const [content, setContent] = useState("");
     const history = useHistory();
