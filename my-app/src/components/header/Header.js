@@ -31,9 +31,9 @@ const Header = () => {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/activity">Activity</Nav.Link>
                         <NavDropdown title="New Operations" id="collasible-nav-dropdown" >
-                            <NavDropdown.Item href="/deposit">Deposit</NavDropdown.Item>
+                            <NavDropdown.Item href="/operation/deposit">Deposit</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/withdraw">Whithdraw</NavDropdown.Item>
+                            <NavDropdown.Item href="/operation/withdraw">Withdraw</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     {currentUser ?( <Nav className="mr-5">

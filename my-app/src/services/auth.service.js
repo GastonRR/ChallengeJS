@@ -47,8 +47,14 @@ const services ={
             localStorage.removeItem("Token");
         });
     },
-    newDeposit: (date, concept, amount, categorys) => {
-        return axios.post(API_OPERATIONS_URL + 'new/1',{
+    BalanceUpdate: (balance) => {
+        return axios.put(API_ACCOUNT_URL + 'update/balance',{
+            balance
+        }, { headers: authHeader()});
+    },
+    
+    newOperation: (date, concept, amount, categorys,type) => {
+        return axios.post(API_OPERATIONS_URL + `new/${type}`,{
             date,
             concept,
             amount,

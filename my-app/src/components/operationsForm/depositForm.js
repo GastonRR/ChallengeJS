@@ -84,7 +84,7 @@ const Deposit = (props) => {
 
 
         if (checkbtn.current.context._errors.length === 0) {
-            authService.newDeposit(Date, Concept, Amount, Category).then((data) => {
+            authService.newOperation(Date, Concept, Amount, Category, 1).then((data) => {
                 props.history.push("/");
                 window.location.reload();
 
@@ -106,7 +106,7 @@ const Deposit = (props) => {
                 <div className="card card-container bg-form">
 
                     <img
-                        src="https://www.iconbunny.com/icons/media/catalog/product/1/1/110.7-money-bag-icon-iconbunny.jpg"
+                        src="https://static.thenounproject.com/png/878634-200.png"
                         alt="profile-img"
                         className="profile-img-card"
                     />
@@ -114,7 +114,7 @@ const Deposit = (props) => {
                     <Form onSubmit={handleBalance} ref={form}>
                         <div className="form-group text-center">
                             <div className="alert" role="alert">
-                                How much money do you have
+                               <h4>Money deposited</h4>
                             </div>
                         </div>
 

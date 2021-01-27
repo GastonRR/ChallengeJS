@@ -12,7 +12,7 @@ function Options(props) {
         <Card bg="dark" className="text-center text-warning Options-container">
             <Card.Body className="d-flex justify-content-between p-0">
                 <div className="text-options-cards">
-                    <Link className="text-warning" to='/deposit'>
+                    <Link className="text-warning" to='/operation/deposit'>
                         <img
                             src="https://static.thenounproject.com/png/878634-200.png"
                             alt="Option-img"
@@ -23,7 +23,7 @@ function Options(props) {
                     </Link>
                 </div>
                 <div className="text-options-cards">
-                    <Link className="text-warning" to='/edit/balance'>
+                    <Link className="text-warning" to='/balance/update'>
                         <img
                             src="https://cdn4.iconfinder.com/data/icons/symbol-duo-business-1/32/dollar-edit-512.png"
                             alt="Option-img"
@@ -33,13 +33,13 @@ function Options(props) {
                     </Link>
                 </div>
                 <div className="text-options-cards">
-                    <Link className="text-warning" to='/whitdraw'>
+                    <Link className="text-warning" to='/operation/withdraw'>
                         <img
                             src="https://static.thenounproject.com/png/878637-200.png"
                             alt="Option-img"
                             className="Options-img-card mx-auto mt-1 "
                         />
-                        <p className='mt-2'>Whithdraw</p>
+                        <p className='mt-2'>Withdrawn</p>
                     </Link>
 
                 </div>
