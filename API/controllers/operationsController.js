@@ -140,11 +140,32 @@ const newOperation = async (req, res, next) => {
 const editOperation = async (req, res, next) => {
     try {
         let idEdit = req.params.id
-        const account = await Account.findOne({
+        const accountCurrent = await Account.findOne({
             where:{
                 idUser: req.user
             }
         });
+        const instCurrent = await Operation.findOne({
+            where:{
+                id: idEdit
+            }
+        });
+        if(instCurrent.idType !=1){
+           
+            var op = accountCurrent.balance + instCurrent.amount;
+           
+        }else{
+            var op = accountCurrent.balance - instCurrent.amount;
+        }
+
+        const updateAccountCurrent = await Account.update({
+            balance: op
+        },{
+            where: {
+                idUser: req.user
+            }
+        });
+        
         
         const operation = await Operation.update({  
             date: req.body.date, 
@@ -161,14 +182,20 @@ const editOperation = async (req, res, next) => {
                 id: idEdit
             }
         });
+        const account = await Account.findOne({
+            where:{
+                idUser: req.user
+            }
+        });
         
         if(inst.idType !=1){
            
             var op = account.balance - inst.amount;
            
         }else{
-            var op = Number(account.balance) + Number(inst.amount);
+            var op = account.balance + inst.amount;
         }
+        
         
         const updateAccount = await Account.update({
             balance: op
@@ -202,6 +229,33 @@ const editOperation = async (req, res, next) => {
 const deleteOperation = async (req, res, next) => {
     try {
         let idDestroy = req.params.id;
+        const account = await Account.findOne({
+            where:{
+                idUser: req.user
+            }
+        });
+        const instanceOperation = await Operation.findOne({
+            where:{
+               id: idDestroy
+            }
+        });
+        if(instanceOperation.idType !=1){
+           
+            var op = account.balance + instanceOperation.amount;
+           
+        }else{
+            var op = account.balance - instanceOperation.amount;
+        }
+        const updateAccount = await Account.update({
+            balance: op
+        },{
+            where: {
+                idUser: req.user
+            }
+        });
+
+
+       
         const Destroy = await Operation.destroy({
             where: {
                 id:idDestroy

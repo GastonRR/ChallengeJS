@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
 import Moment from 'react-moment';
 import { Table } from 'react-bootstrap';
 
@@ -13,7 +12,6 @@ import './activity.css'
 
 
 function Activity(props) {
-    const history = useHistory();
     const Delete = (id) =>{
         authServices.DeleteOperation(id).then((data)=>{
             window.location.reload();
