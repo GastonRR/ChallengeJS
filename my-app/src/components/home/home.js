@@ -7,7 +7,7 @@ import authService from '../../services/auth.service';
 import Header from '../header/Header'
 import Balance from '../BalanceCard/BalanceCard'
 import Options from '../optionsCard/optionsCards'
-import Activity from '../ActivityTable/Activity'
+import Activity from '../ActivityTable/RecentActivity'
 
 function HomePage() {
   const [content, setContent] = useState("");

@@ -61,8 +61,22 @@ const services ={
             categorys
         }, { headers: authHeader()});
     },
+    EditOperation: (date, concept, amount, categorys,id) => {
+        return axios.put(API_OPERATIONS_URL + `edit/${id}`,{
+            date,
+            concept,
+            amount,
+            categorys
+        }, { headers: authHeader()});
+    },
+    DeleteOperation: (id) => {
+        return axios.delete(API_OPERATIONS_URL + `delete/${id}`, { headers: authHeader()});
+    },
     getAccountContent: () =>{
         return axios.get(API_ACCOUNT_URL + '/balance', { headers: authHeader()})
+    },
+    getActivityContent: () =>{
+        return axios.get(API_OPERATIONS_URL, { headers: authHeader()})
     }
    
 }

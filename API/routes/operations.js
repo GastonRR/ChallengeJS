@@ -20,4 +20,7 @@ router.post('/new/:type',auth,operationsController.newOperation);
 
 router.put('/edit/:id',auth,operationsController.editOperation )
 
+/* DELETE*/
+router.delete('/delete/:id',auth,operationsController.deleteOperation )
+
 module.exports = router;

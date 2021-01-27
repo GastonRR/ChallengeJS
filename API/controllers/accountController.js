@@ -15,7 +15,8 @@ const getBalance = async (req, res, next) => {
             },
             order:[
                 ['Operations','date', 'DESC']
-            ]
+            ],
+            limit: 10
         })
         res.status(200).json({
                     status: "OK",

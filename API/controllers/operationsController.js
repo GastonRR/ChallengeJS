@@ -23,7 +23,17 @@ const getOperations = async (req, res, next) => {
                 }
             });
         }
-        let operations = await Operation.findAll();
+
+        const account = await Account.findOne({
+            where:{
+                idUser: req.user
+            }
+        });
+        let operations = await Operation.findAll({
+            where: {
+                idAccount: account.id
+            }
+        });
 
         res.status(200).json({
             status: "OK",
@@ -129,17 +139,45 @@ const newOperation = async (req, res, next) => {
 }
 const editOperation = async (req, res, next) => {
     try {
-       let idEdit = req.params.id
-        const operation = await Operation.update({   
+        let idEdit = req.params.id
+        const account = await Account.findOne({
+            where:{
+                idUser: req.user
+            }
+        });
+        
+        const operation = await Operation.update({  
+            date: req.body.date, 
             concept: req.body.concept,
             amount: req.body.amount,
-            idType: req.body.type,
             idCategory: req.body.Categorys
         },{
             where: {
                 id: idEdit
             }
         });
+        const inst = await Operation.findOne({
+            where:{
+                id: idEdit
+            }
+        });
+        
+        if(inst.idType !=1){
+           
+            var op = account.balance - inst.amount;
+           
+        }else{
+            var op = Number(account.balance) + Number(inst.amount);
+        }
+        
+        const updateAccount = await Account.update({
+            balance: op
+        },{
+            where: {
+                idUser: req.user
+            }
+        });
+        
 
         res.status(200).json({
             status: "OK",
@@ -161,6 +199,38 @@ const editOperation = async (req, res, next) => {
         })
     }
 }
+const deleteOperation = async (req, res, next) => {
+    try {
+        let idDestroy = req.params.id;
+        const Destroy = await Operation.destroy({
+            where: {
+                id:idDestroy
+            }
+        })
+        res.status(200).json({
+            status: "OK",
+            msg: "CORRECT_DELETE",
+            endpoint: req.originalUrl,
+            method: req.method,
+            data: {
+                type: "Operation",
+                operation: Destroy
+            }
+        });
+        
+    } catch (error) {
+        res.status(500).json({
+            status: "ERROR",
+            msg: "INCORRECT_DELETE",
+            endpoint: req.originalUrl,
+            method: req.method,
+            data: error
+        })
+    }
+  
+
+   
+}
 
 
 
@@ -168,5 +238,6 @@ module.exports = {
     getOperations,
     getDetailOperation,
     newOperation,
-    editOperation
+    editOperation,
+    deleteOperation,
 }
