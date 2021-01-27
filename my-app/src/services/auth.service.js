@@ -1,7 +1,9 @@
 import axios from "axios"
+import authHeader from './auth-header'
 
 const API_URL = "/api.users/"
 const API_ACCOUNT_URL = "/api.account/"
+const API_OPERATIONS_URL = '/api.operations/'
 
 const services ={
     register: (username, email, password) =>{
@@ -44,9 +46,19 @@ const services ={
         }).then(()=>{
             localStorage.removeItem("Token");
         });
+    },
+    newDeposit: (date, concept, amount, categorys) => {
+        return axios.post(API_OPERATIONS_URL + 'new/1',{
+            date,
+            concept,
+            amount,
+            categorys
+        }, { headers: authHeader()});
+    },
+    getAccountContent: () =>{
+        return axios.get(API_ACCOUNT_URL + '/balance', { headers: authHeader()})
     }
    
-
 }
 
 

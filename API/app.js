@@ -11,6 +11,7 @@ var methodOverride = require('method-override');
 var usersRouter = require('./routes/users');
 var accountRouter = require('./routes/account');
 var operationsRouter = require('./routes/operations');
+var publicRouter = require('./routes/public');
 
 var app = express();
 
@@ -22,10 +23,11 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('api.gaston', operationsRouter);
 app.use('/api.users', usersRouter);
 app.use('/api.account', accountRouter);
 app.use('/api.operations', operationsRouter);
+app.use('/api.public', publicRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

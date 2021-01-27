@@ -85,7 +85,7 @@ const newOperation = async (req, res, next) => {
         });
 
         const operation = await Operation.create({
-            date: moment(req.body.date,'DD-MM-YYYY').format('YYYY-MM-DD'),
+            date: req.body.date,
             concept: req.body.concept,
             amount: req.body.amount,
             idType: type,

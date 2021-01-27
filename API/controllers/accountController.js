@@ -8,11 +8,14 @@ const getBalance = async (req, res, next) => {
     try {
         const account = await Account.findOne({
             include :[{
-                association: "Operations"
+                association: "Operations",
             }],
             where: {
                 idUser: req.user
-            }
+            },
+            order:[
+                ['Operations','date', 'DESC']
+            ]
         })
         res.status(200).json({
                     status: "OK",

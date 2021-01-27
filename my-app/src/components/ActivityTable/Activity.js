@@ -26,7 +26,7 @@ function Activity(props) {
                             return (
                             <tr key={id}>
                                 <td className='text-center'>
-                                    <Moment format="DD/MM">
+                                    <Moment format="DD/MM/YY">
                                         {operation.date}
                                     </Moment>           
                                 </td>
