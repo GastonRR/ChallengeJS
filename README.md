@@ -12,11 +12,11 @@
 
 ## How to use
   
-**`You must first clone the repository. Then go to the "API" folder, run the "npm install" command once installed, repeat in the "my-app" folder.`**
+**`First, you need to clone the repository. Afterward go to the "API" folder and run the "npm install" command. Once installed, repeat it in the "my-app" folder.`**
 
-**`Then go to the folder "Public" on the root of the repository and Execute the Sql of the database.`**
+**`Secondly, go to the "Public" folder on the root of the repository and Execute the Sql of the database.`**
 
-**`Once everything is installed, go to the "API" folder and execute the command "Npm run api". This command starts the API and the React application.`**
+**`After everything is installed, go to the "API" folder and execute the command "Npm run api". This command starts the API and the React application.`**
 
 
 **User Test - Log In**
@@ -26,42 +26,38 @@
 
 ## Content Page
 
-**Login**
+**Log In**
 
 >   Form to login
 
-**SignIn**
+**Sign In**
 
 >   Form to Register
 
-**HomePage**
+**Home Page**
 >- Account balance
 >- Recent Activity (10 operations max. Sorted by date)
 >- Option buttons:
-> --Edit balance
-> --Create new operation: Deposit
->  --Create new Operation: withdraw
->  --LogOut
+>- - Edit balance
+> - - Create new operation: Deposit
+>  - - Create new operation: Withdraw
+>  - - Log Out
 
 **Activity Page**
 
->- All Activity (All operations. sorted by date, can be filtered by type and category)
+>- All activities (all  the operations. sorted by date, can be filtered by type and category)
 >- Option buttons:
-> --Edit activity
-> --Delete Activity
->  --LogOut
+> - - Edit activity
+> - - Delete activity
+>  - - Log Out
 >  
 **Activity Detail**
 > Detailed information of the operation
 
 
 
-
-
-
 ## React Flowchart 
 ![enter image description here](https://i.imgur.com/hhZkXBd.png)
-
 
 ## API Endpoints 
 
@@ -85,8 +81,7 @@
 **Account:  needs authorization**
 - **POST - /api.account/balance** - *get all the information of the account with its operations*
 - **POST - /api.account/new/balance** - *set the balance of the new account*
-- **POST - /api.account/balance** - *Update your account balance*
-
+- **POST - /api.account/balance** - *update your account balance*
 
 
 ##   EER diagram of the database

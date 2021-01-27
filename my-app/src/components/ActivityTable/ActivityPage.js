@@ -7,7 +7,7 @@ import authService from '../../services/auth.service';
 
 
 import Header from '../header/Header'
-import Activity from './AllActivity'
+import Activity from './AllActivities'
 
 import './Activitypage.css'
 

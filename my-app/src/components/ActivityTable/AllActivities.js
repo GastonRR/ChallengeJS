@@ -21,7 +21,7 @@ function Activity(props) {
 
     return (
         <div className='activity-container mx-auto'>
-            <h3 className='text-dark'> Activity </h3>
+            <h3 className='text-dark'> Activities </h3>
             <Table striped borderless variant='dark' className='text-warning table-Activity'>
                 <thead>
                     <tr>
