@@ -7,8 +7,8 @@ const auth = require('../middlewares/auth');
 
 /* GET */
 
-router.get('/operations/:op?',auth, operationsController.getOperations)
-router.get('/operations/detail/:id',auth,operationsController.getDetailOperation)
+router.get('/:op?',auth, operationsController.getOperations)
+router.get('/detail/:id',auth,operationsController.getDetailOperation)
 
 
 /* POST */
@@ -18,6 +18,6 @@ router.post('/new/:type',auth,operationsController.newOperation);
 
 /* UPDATE*/
 
-router.put('/operations/edit/:id',auth,operationsController.editOperation )
+router.put('/edit/:id',auth,operationsController.editOperation )
 
 module.exports = router;

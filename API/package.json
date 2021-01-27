@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "api": "concurrently \"node ./bin/www\" \"cd .. && cd my-app && npm start\"",
-    "test": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

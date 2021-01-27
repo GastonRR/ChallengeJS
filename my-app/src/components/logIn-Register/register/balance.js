@@ -71,7 +71,7 @@ const Balance = (props) => {
                 <div className="card card-container bg-form">
                     
                     <img
-                        src="https://www.iconbunny.com/icons/media/catalog/product/1/1/110.7-money-bag-icon-iconbunny.jpg"
+                        src="https://2.bp.blogspot.com/-dEbdVuggL2g/XIdFdCEkS-I/AAAAAAAAIsI/yy6JCgnekkk96QFhWaL0ofN_8GbKyoESACK4BGAYYCw/s1600/logo%2Bcash%2Bapp.png"
                         alt="profile-img"
                         className="profile-img-card"
                     />
